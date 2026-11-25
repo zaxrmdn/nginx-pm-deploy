@@ -29,10 +29,10 @@ jobs:
         VPS_USER: ${{ secrets.VPS_USER }}
         VPS_IP: ${{ secrets.VPS_IP }}
       run: |
-        ssh $VPS_USER@$VPS_IP "mkdir -p /opt/vps-stack/npm"
-        scp npm/docker-compose.npm.yml $VPS_USER@$VPS_IP:/opt/vps-stack/npm/
+        ssh $VPS_USER@$VPS_IP "mkdir -p /opt/npm"
+        scp npm/docker-compose.npm.yml $VPS_USER@$VPS_IP:/opt/npm/
         ssh $VPS_USER@$VPS_IP << 'EOF'
-          cd /opt/vps-stack/npm
+          cd /opt/npm
           docker compose -f docker-compose.npm.yml pull
           docker compose -f docker-compose.npm.yml up -d --remove-orphans
         EOF
