@@ -1,5 +1,6 @@
 networks:
   app-net:
+    name: app-net
     driver: bridge
 
 services:
@@ -8,9 +9,9 @@ services:
     container_name: npm
     restart: unless-stopped
     ports:
-      - "80:80"     # Port HTTP publik
-      - "81:81"     # Port Web UI Admin NPM
-      - "443:443"   # Port HTTPS publik
+      - "80:80"
+      - "81:81"
+      - "443:443"
     environment:
       DISABLE_IPV6: 'true'
     volumes:
